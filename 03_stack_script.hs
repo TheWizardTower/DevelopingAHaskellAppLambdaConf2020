@@ -27,8 +27,13 @@ gitPull repoName = do
         parentDirPath = decodeString ".."
     cd repoNamePath
     exitCode <- procStrict "git" ["config", "pull.rebase", "false"] ""
-    cd parentDirPath
-    return exitCode
+    if (fst exitCode == ExitSuccess) then do
+        exitCode' <- procStrict "git" ["pull", "TheWizardTower", "master"] ""
+        cd parentDirPath
+        return exitCode'
+    else do
+        cd parentDirPath
+        return exitCode
 
 gitClone :: String -> IO (ExitCode, Text)
 gitClone repoName = do
