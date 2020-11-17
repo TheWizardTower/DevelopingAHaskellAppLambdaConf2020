@@ -1,0 +1,51 @@
+name:                stack-build
+version:             0.1.0.0
+github:              "TheWizardTower/DevelopingAHaskellAppLambdaConf2020/stack-build"
+license:             BSD3
+author:              "Adam McCullough"
+maintainer:          "merlinfmct87@gmail.com"
+copyright:           "(c) 2020 Adam McCullough"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/TheWizardTower/stack-build#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- turtle
+- async
+- text
+
+library:
+  source-dirs: src
+
+executables:
+  stack-build-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - stack-build
+
+tests:
+  stack-build-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - stack-build
