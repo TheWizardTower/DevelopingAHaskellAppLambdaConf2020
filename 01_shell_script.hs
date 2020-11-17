@@ -48,25 +48,6 @@ gitPullOrCheckout repo = do
   repoExists <- doesDirectoryExist $ pwd ++ "/" ++ repo
   if repoExists then gitPull repo else gitCheckout repo
 
-dirChangeTest :: IO ()
-dirChangeTest = do
-  pwd <- getCurrentDirectory
-  pwdSh <- readProcessWithExitCode "pwd" [] ""
-  dirExists <- doesDirectoryExist $ pwd ++ "/TestGit"
-  setCurrentDirectory $ pwd ++ "/.."
-  pwd' <- getCurrentDirectory
-  pwdSh' <- readProcessWithExitCode "pwd" [] ""
-  dirExists' <- doesDirectoryExist $ pwd' ++ "/TestGit"
-  print pwd
-  print pwd'
-  print pwdSh
-  print pwdSh'
-  print dirExists
-  print dirExists'
-
-main' :: IO ()
-main' = dirChangeTest
-
 main :: IO ()
 main = do
   putStrLn "Hello, runghc!"
