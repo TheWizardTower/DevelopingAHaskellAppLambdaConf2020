@@ -5,7 +5,6 @@
 
 import Data.Text (pack)
 import Turtle
-import Turtle.Prelude
 import Control.Concurrent.Async (mapConcurrently)
 import Prelude hiding (FilePath)
 
@@ -19,11 +18,7 @@ repositories =  [  "main-engineering"
 
 checkIfDirExists :: String -> IO Bool
 checkIfDirExists repoName = do
-    currDir <- pwd
-    let currDirStr = encodeString currDir
-        repoDirStr = currDirStr ++ "/" ++ repoName
-        repoDir = decodeString repoDirStr
-        repoNamePath = decodeString repoName
+    let repoNamePath = decodeString repoName
     testdir repoNamePath
 
 gitPull :: String -> IO (ExitCode, Text)
