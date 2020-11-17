@@ -1,5 +1,5 @@
 #!/usr/bin/env stack
--- stack --resolver lts-16.20 script
+-- stack --resolver lts-16.22 script
 
 import Turtle
 import Turtle.Prelude
