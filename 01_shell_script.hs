@@ -19,6 +19,7 @@ repositories =  [ "abrazo"
                 , "main-engineering"
                 , "interview_questions"
                 , "DevelopingAHaskellAppLambdaConf2020"
+                , "TheWizardTower.github.io"
                 ]
 
 gitPull :: String -> IO (ExitCode, String, String)

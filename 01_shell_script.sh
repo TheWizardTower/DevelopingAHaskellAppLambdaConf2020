@@ -3,7 +3,8 @@
 REPOSITORIES="abrazo \
     main-engineering \
     interview_questions \
-    DevelopingAHaskellAppLambdaConf2020"
+    DevelopingAHaskellAppLambdaConf2020 \
+    TheWizardTower.github.io"
 
 pushd ../
 
